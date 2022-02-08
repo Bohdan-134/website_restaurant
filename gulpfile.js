@@ -5,6 +5,7 @@ const sass = require("gulp-sass")(require("sass"));
 const autoprefixer = require("gulp-autoprefixer");
 const gulpRename = require("gulp-rename");
 const cleanCss = require("gulp-clean-css");
+const webp = require("gulp-webp");
 const babel = require("gulp-babel");
 const uglify = require("gulp-uglify");
 const concat = require("gulp-concat");
@@ -74,6 +75,12 @@ function fonts() {
   .pipe(gulp.dest(paths.fonts.dest));
 }
 
+function images() {
+  return gulp.src(paths.images.src)
+    .pipe(webp())
+    .pipe(gulp.dest(paths.images.dest))
+}
+
 function styles() {
   return gulp.src(paths.styles.src)
     .pipe(sourcemaps.init())
@@ -101,12 +108,13 @@ function watch() {
   gulp.watch(paths.styles.src, styles);
   gulp.watch(paths.scripts.src, scripts);
   gulp.watch(paths.fonts.src, fonts);
+  gulp.watch(paths.images.src, images);
 }
 
 const build = gulp.series(
   clean,
   /* html */ pug,
-  gulp.parallel(scripts, styles, fonts),
+  gulp.parallel(scripts, styles, fonts, images),
   watch
 );
 
@@ -117,5 +125,6 @@ exports.styles = styles;
 exports.watch = watch;
 exports.scripts = scripts;
 exports.fonts = fonts;
+exports.images = images;
 exports.build = build;
 exports.default = build;

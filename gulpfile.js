@@ -31,7 +31,7 @@ const paths = {
     dest: "dist/js/ ",
   },
   fonts: {
-    src: "src/fonts/**/*.otf",
+    src: "src/fonts/**/*.{otf,ttf}",
     dest: "dist/fonts",
   },
   images: {

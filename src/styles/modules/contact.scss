@@ -1,0 +1,141 @@
+@import "../utils/main.utils";
+
+.contact {
+  position: relative;
+  height: 665px;
+  background: url(../img/map.webp) no-repeat;
+  background-size: 100% 100%;
+}
+
+.contact-container {
+  width: 526px;
+  height: 405px;  
+  padding: 32px 0px 25px 52px;
+  position: absolute;
+  left: 109px;
+  bottom: 40px;
+  background-color: #2e2b2c;
+  box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  .contact-container__header {
+    font-family: "Gilroy-bold";
+    @include text(30px, 500, 21px, $white-color);
+    text-transform: uppercase;
+    margin-bottom: 34px;
+  }
+}
+
+.contact-container__main {
+    padding: 15px 0px 28px 0px;
+    position: relative;
+    &::before,
+    &::after{
+        content: '';
+        position: absolute;
+        height: 1px;
+        width: 100%;
+        left: -26px;
+        background: linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(255,255,255,0.15029761904761907) 50%, rgba(0,0,0,0) 100%);
+    }
+
+    &::before {
+        top: -1px;
+    }
+
+    &::after {
+        bottom: -1px;
+    }
+
+  .contact-info {
+    @include flex(null, flex-start, row);
+    &:nth-child(1){
+        margin-bottom: 17px;
+    }
+    svg{
+        width: 24px;
+        height: 24px;
+        margin-right: 15px;
+    }
+    .contact-info__text {
+        max-width: 391px;
+        @include flex(null, null, column);
+        span {
+            font-family: "Gilroy-light";
+            @include text(14px, 400, 16px, $text-p-color);
+            margin-bottom: 6px;
+        }
+        p, a {
+            font-family: "Gilroy-light";
+            @include text(16px, 600, 23px, $white-color)
+        }
+    }
+  }
+}
+
+.contact-container__footer {
+    .application-methods__block {
+        @include flex(null, center, null);
+        margin-top: 17px;
+    }
+}
+
+#book-a-table {
+    width: 211px;
+    height: 59px;
+    background-color: $green-color;
+    border-radius: 10px;
+    @include flex(center, center, null);
+    font-family: 'Proxima-Nova-bold';
+    @include text(13px, bold, 16px, $white-color);
+    margin-right: 33px;
+}
+
+.number-block {
+    @include flex(null, null, column);
+    a {
+        font-family: "Gilroy-bold";
+        @include text(23px, normal, 28px, $text-p-color);
+    }
+    span {
+        font-family: "Gilroy-light";
+        @include text(13px, bold, 15px, $white-color);
+    }
+}
+
+.social {
+    margin: 0px auto;
+    display: flex;
+    width: 253px;
+    margin: 30px auto 0px;
+    span {
+        font-family: 'Gilroy-bold';
+        @include text(16px, 600, 19px, $white-color);
+    }
+}
+
+.social-links {
+    @include flex(null, center, null);
+    margin-left: 21px;
+    li {
+        margin: 0px 5px;
+        &:last-child{
+            margin-right: 0px;
+        }
+    }
+}
+
+.map-point {
+    width: 98px;
+    height: 112px;
+    background: url(../img/point.svg);
+    @include flex(center, null, null);
+    position: absolute;
+    bottom: 183px;
+    right: 322px;
+    span{
+        margin-top: 29px;
+        font-family: 'Gilroy-bold';
+        @include text(16px, 800, 20px, $white-color);
+        text-align: center;
+    }
+}

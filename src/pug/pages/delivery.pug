@@ -1,0 +1,45 @@
+include ../mixin/head
+include ../mixin/header
+
+doctype html
+html(lang="ru")
+    +head('Доставка', '../css/main.css')
+    body 
+        +header
+        main
+            section.delivery
+                .delivery-container
+                    h3.title-h3.delivery-title УСЛОВИЯ ДОСТАВКИ
+                    .delivery-container__main
+                        .delivery-accordeon
+                            .delivery-accordeon__item 
+                                .delivery-accordeon__title У наших курьеров всегда должна быть сдача!
+                                .delivery-accordeon__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni nisi non minus autem expedita voluptates obcaecati tenetur consequuntur ratione laudantium. 
+                            .delivery-accordeon__item 
+                                .delivery-accordeon__title Вам что-то не довезли?
+                                .delivery-accordeon__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum aperiam nobis ad dolorem fugit ullam non autem labore accusantium eveniet?
+                            .delivery-accordeon__item 
+                                .delivery-accordeon__title Не понравился продукт?
+                                .delivery-accordeon__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quas modi consectetur magnam commodi eaque. Quam et aliquam itaque fugit.
+                            .delivery-accordeon__item 
+                                .delivery-accordeon__title Если появились замечания
+                                .delivery-accordeon__text Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, temporibus!
+                            .delivery-accordeon__item 
+                                .delivery-accordeon__title Оплата Visa, MasterCard и МИР
+                                .delivery-accordeon__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, quae.
+                            .delivery-accordeon__item 
+                                .delivery-accordeon__title Реквизиты
+                                .delivery-accordeon__text Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, quae.
+                        .delivery-map
+                    .delivery-schedule
+                        .delivery-schedule__block 
+                            h5 График работы доставки:
+                            span с 10:00-21:00
+                        .delivery-schedule__block
+                            h5 График работы кафе:
+                            span с 08:00-21:00
+                    .delivery-info
+                        h5 Минимальный заказ:
+                        p Бесплатная доставка пешим курьером при сумме заказа от 400 ₽ Доставка оператором такси от любой суммы заказа - по тарифам перевозчика.
+        include ../modules/footer
+        script(src="../js/main.js")

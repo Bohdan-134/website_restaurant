@@ -1,0 +1,130 @@
+@import "../utils/main.utils";
+
+.delivery {
+  background: transparent;
+  padding: 50px 0px 37px 0px;
+}
+
+.delivery-container {
+  max-width: 1257px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.delivery-title {
+  margin-bottom: 42px;
+}
+
+.delivery-container__main {
+  @include flex(space-between, flex-start, row);
+  margin-bottom: 30px;
+}
+
+.delivery-accordeon {
+  width: 618px;
+  @include flex(null, null, column);
+}
+
+.delivery-accordeon__item {
+  overflow: hidden;
+  position: relative;
+  @include flex(null, null, column);
+  margin-bottom: 10px;
+  &:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+.delivery-accordeon__title {
+  font-family: "Gilroy-light";
+  @include text(18px, 500, 35px, $white-color);
+  @include flex(null, center, row);
+  padding: 0px 30px;
+  background-color: $green-color;
+  height: 68px;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 1px;
+    height: 10px;
+    background-color: $white-color;
+    transition: .5s;
+  }
+  &::before {
+    right: 30px;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  &::after {
+    right: 37px;
+    transform: translateY(-50%) rotate(-45deg);
+  }
+}
+
+.delivery-map {
+  width: 639px;
+  height: 610px;
+  background: url(../img/map-d.webp);
+  background-size: 100% 100%;
+  margin-left: 20px;
+  border-radius: 10px;
+}
+
+.delivery-accordeon__text {
+  padding: 37px 0px 40px 30px;
+  max-width: 537px;
+  font-family: "Gilroy-light";
+  @include text(16px, normal, 25px, $text-p-color);
+  display: none;
+}
+
+.delivery-schedule {
+  @include flex(null, center, row);
+}
+
+.delivery-schedule__block {
+  max-width: 269px;
+  margin-bottom: 40px;
+  &:first-child {
+    margin-right: 100px;
+  }
+  h5 {
+    font-family: "Gilroy-bold";
+    @include text(22px, 700, 35px, $white-color);
+  }
+  span {
+    font-family: "Gilroy-light";
+    @include text(22px, 400, 35px, $text-p-color);
+  }
+}
+
+.delivery-info {
+  h5 {
+    font-family: "Gilroy-bold";
+    @include text(22px, 700, 35px, $white-color);
+    margin-bottom: 10px;
+  }
+  p {
+    font-family: "Gilroy-light";
+    @include text(22px, 700, 35px, $white-color);
+    max-width: 700px;
+  }
+}
+
+.accordeon-item__active {
+  .delivery-accordeon__title {
+    &::before {
+        transform: translateY(-50%) rotate(135deg);
+    }
+    &::after {
+        transform: translateY(-50%) rotate(-135deg);
+    }
+  }
+  .delivery-accordeon__text {
+    display: block;
+  }
+}

@@ -4,7 +4,7 @@ include mixin/header
 
 doctype html
 html(lang="ru")
-    +head('Главная')
+    +head('Главная', './css/main.css')
     body 
         +header
             .banner
@@ -14,8 +14,9 @@ html(lang="ru")
                 button#banner-button Ещё не пробовал?
                 .banner-image
         main 
-            include modules/contact 
-        include modules/footer        
+            include modules/about-us 
+            include modules/contact  
+            include modules/footer      
 
 
 

@@ -21,6 +21,7 @@ const paths = {
   html: {
     src: "src/*.html",
     dest: "dist/",
+    pages: "dist/pages/"
   },
   styles: {
     src: "src/styles/**/*.scss",
@@ -28,7 +29,7 @@ const paths = {
   },
   scripts: {
     src: "src/scripts/**/*.js",
-    dest: "dist/js/ ",
+    dest: "dist/js/",
   },
   fonts: {
     src: "src/fonts/**/*.{otf,ttf}",
@@ -71,18 +72,19 @@ function scripts() {
 }
 
 function fonts() {
-  return gulp.src(paths.fonts.src)
-  .pipe(gulp.dest(paths.fonts.dest));
+  return gulp.src(paths.fonts.src).pipe(gulp.dest(paths.fonts.dest));
 }
 
 function images() {
-  return gulp.src(paths.images.src)
+  return gulp
+    .src(paths.images.src)
     .pipe(webp())
-    .pipe(gulp.dest(paths.images.dest))
+    .pipe(gulp.dest(paths.images.dest));
 }
 
 function styles() {
-  return gulp.src(paths.styles.src)
+  return gulp
+    .src(paths.styles.src)
     .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(autoprefixer())
@@ -104,6 +106,7 @@ function watch() {
     },
   });
   gulp.watch(paths.html.dest).on("change", browserSync.reload);
+  gulp.watch(paths.html.pages).on("change", browserSync.reload);
   gulp.watch(paths.pug.src, pug);
   gulp.watch(paths.styles.src, styles);
   gulp.watch(paths.scripts.src, scripts);
@@ -113,8 +116,8 @@ function watch() {
 
 const build = gulp.series(
   clean,
-  /* html */ pug,
-  gulp.parallel(scripts, styles, fonts, images),
+  pug,
+  gulp.parallel(styles, scripts, images, fonts),
   watch
 );
 

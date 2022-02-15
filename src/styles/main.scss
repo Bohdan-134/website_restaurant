@@ -1,12 +1,28 @@
 @import "modules/header.scss";
 @import "modules/banner.scss";
+@import "modules/about-us.scss";
 @import "modules/contact.scss";
+@import "pages/delivery.scss";
 @import "modules/footer";
 
 
 body {
-    background-color: $bg-color;
+    background: $bg-color;
 }
 
-
-
+.title-h3 {
+    font-family: 'Gilroy-bold';
+    @include text(32px, bold, 39px, $white-color);
+    padding-left: 19px;
+    position: relative;
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 33px;
+        width: 4px;
+        background: $green-color;
+    }
+}
